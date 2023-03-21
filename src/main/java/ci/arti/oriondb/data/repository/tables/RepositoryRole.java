@@ -1,6 +1,6 @@
 package ci.arti.oriondb.data.repository.tables;
 
-import ci.arti.oriondb.data.models.ModelRole;
+import ci.arti.oriondb.data.models.tables.ModelRole;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

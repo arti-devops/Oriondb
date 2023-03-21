@@ -1,6 +1,6 @@
 package ci.arti.oriondb.controller.tables;
 
-import ci.arti.oriondb.data.models.ModelSubdivision;
+import ci.arti.oriondb.data.models.tables.ModelSubdivision;
 import ci.arti.oriondb.data.repository.tables.RepositorySubdivision;
 import ci.arti.oriondb.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,5 +1,9 @@
 package ci.arti.oriondb.data.models;
 
+import ci.arti.oriondb.data.models.tables.ModelEmployee;
+import ci.arti.oriondb.data.models.tables.ModelRole;
+import ci.arti.oriondb.data.models.tables.ModelService;
+import ci.arti.oriondb.data.models.tables.ModelSubdivision;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,5 +1,6 @@
-package ci.arti.oriondb.data.models;
+package ci.arti.oriondb.data.models.tables;
 
+import ci.arti.oriondb.data.models.ModelPosition;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
