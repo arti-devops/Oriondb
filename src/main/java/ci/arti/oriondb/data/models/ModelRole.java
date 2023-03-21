@@ -24,4 +24,7 @@ public class ModelRole {
     @Column
     private String shortName;
 
+    @OneToMany(mappedBy = "role")
+    @JsonBackReference
+    private List<ModelPosition> positions = new ArrayList<>();
 }

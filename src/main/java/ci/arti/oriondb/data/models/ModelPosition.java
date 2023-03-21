@@ -27,4 +27,11 @@ public class ModelPosition {
     @JoinColumn(name = "employee_id")
     @JsonManagedReference
     private ModelEmployee employee;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "role_id")
+    @JsonManagedReference
+    private ModelRole role;
+
+
 }
