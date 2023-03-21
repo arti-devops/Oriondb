@@ -32,8 +32,4 @@ public class ModelService {
     @JoinColumn(name = "subdivision_id", nullable = true)
     @JsonBackReference
     private ModelSubdivision subdivision;
-
-    @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private List<ModelPosition> positions = new ArrayList<>();
 }

@@ -1,5 +1,6 @@
 package ci.arti.oriondb.data.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +24,4 @@ public class ModelRole {
     @Column
     private String shortName;
 
-    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private List<ModelPosition> positions = new ArrayList<>();
 }
