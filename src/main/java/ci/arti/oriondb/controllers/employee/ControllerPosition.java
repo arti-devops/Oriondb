@@ -1,7 +1,7 @@
-package ci.arti.oriondb.controller;
+package ci.arti.oriondb.controllers.employee;
 
-import ci.arti.oriondb.data.models.ModelPosition;
-import ci.arti.oriondb.data.repository.RepositoryPosition;
+import ci.arti.oriondb.data.models.employee.ModelPosition;
+import ci.arti.oriondb.data.repository.employee.RepositoryPosition;
 import ci.arti.oriondb.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

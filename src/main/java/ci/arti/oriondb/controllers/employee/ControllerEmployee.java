@@ -1,8 +1,8 @@
-package ci.arti.oriondb.controller.tables;
+package ci.arti.oriondb.controllers.employee;
 
 import ci.arti.oriondb.exception.ResourceNotFoundException;
-import ci.arti.oriondb.data.models.tables.ModelEmployee;
-import ci.arti.oriondb.data.repository.tables.RepositoryEmployee;
+import ci.arti.oriondb.data.models.employee.ModelEmployee;
+import ci.arti.oriondb.data.repository.employee.RepositoryEmployee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
