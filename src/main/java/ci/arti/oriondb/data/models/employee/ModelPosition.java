@@ -2,6 +2,7 @@ package ci.arti.oriondb.data.models.employee;
 
 import ci.arti.oriondb.data.models.checkin.ModelAbsence;
 import ci.arti.oriondb.data.models.checkin.ModelLogbook;
+import ci.arti.oriondb.data.models.training.ModelCourse;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
@@ -58,4 +59,8 @@ public class ModelPosition {
     @OneToMany(mappedBy = "position")
     @JsonBackReference
     private List<ModelAbsence> absences = new ArrayList<>();
+
+    @OneToMany(mappedBy = "position")
+    @JsonBackReference
+    private List<ModelCourse> courses = new ArrayList<>();
 }
