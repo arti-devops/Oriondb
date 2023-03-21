@@ -1,5 +1,6 @@
 package ci.arti.oriondb.data.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,17 +25,21 @@ public class ModelPosition {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id")
+    @JsonBackReference
     private ModelRole role;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee_id")
+    @JsonBackReference
     private ModelEmployee employee;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "service_id")
+    @JsonBackReference
     private ModelService service;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subdivision_id")
+    @JsonBackReference
     private ModelSubdivision subdivision;
 }

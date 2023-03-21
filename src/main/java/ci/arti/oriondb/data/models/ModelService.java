@@ -1,5 +1,7 @@
 package ci.arti.oriondb.data.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,8 +30,10 @@ public class ModelService {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subdivision_id", nullable = true)
+    @JsonBackReference
     private ModelSubdivision subdivision;
 
     @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
-    private List<ModelPosition> services = new ArrayList<>();
+    @JsonManagedReference
+    private List<ModelPosition> positions = new ArrayList<>();
 }

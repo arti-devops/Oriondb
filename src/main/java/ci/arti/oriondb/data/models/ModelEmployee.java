@@ -1,5 +1,6 @@
 package ci.arti.oriondb.data.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -37,5 +38,6 @@ public class ModelEmployee implements Serializable {
     private String contact;
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
-    private List<ModelPosition> roles = new ArrayList<>();
+    @JsonManagedReference
+    private List<ModelPosition> positions = new ArrayList<>();
 }
