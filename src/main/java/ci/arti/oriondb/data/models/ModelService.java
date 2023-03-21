@@ -29,7 +29,11 @@ public class ModelService {
     private String shortName;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "subdivision_id", nullable = true)
+    @JoinColumn(name = "subdivision_id")
     @JsonBackReference
     private ModelSubdivision subdivision;
+
+    @OneToMany(mappedBy = "service")
+    @JsonBackReference
+    private List<ModelPosition> positions = new ArrayList<>();
 }
