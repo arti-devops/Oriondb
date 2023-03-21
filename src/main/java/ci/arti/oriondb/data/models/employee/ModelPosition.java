@@ -1,5 +1,6 @@
 package ci.arti.oriondb.data.models.employee;
 
+import ci.arti.oriondb.data.models.checkin.ModelAbsence;
 import ci.arti.oriondb.data.models.checkin.ModelLogbook;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -50,4 +51,8 @@ public class ModelPosition {
     @OneToMany(mappedBy = "position")
     @JsonBackReference
     private List<ModelLogbook> logs = new ArrayList<>();
+
+    @OneToMany(mappedBy = "position")
+    @JsonBackReference
+    private List<ModelAbsence> absences = new ArrayList<>();
 }
