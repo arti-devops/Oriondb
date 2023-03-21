@@ -13,7 +13,6 @@ import java.util.List;
 @Table(name = "tb_training")
 @Getter @Setter @NoArgsConstructor
 public class ModelTraining {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long trainingId;
@@ -21,7 +20,7 @@ public class ModelTraining {
     private String school;
     private Long duration;      // IN DAYS
     private String location;
-
+    private Long cost;
     @OneToMany(mappedBy = "training")
     @JsonBackReference
     private List<ModelCourse> courses = new ArrayList<>();
