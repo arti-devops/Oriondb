@@ -1,4 +1,4 @@
-package ci.arti.oriondb.data.repository;
+package ci.arti.oriondb.data.repository.tables;
 
 import ci.arti.oriondb.data.models.ModelEmployee;
 import org.springframework.data.jpa.repository.JpaRepository;
