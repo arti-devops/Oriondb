@@ -23,4 +23,8 @@ public class ModelService {
 
     @Column
     private String shortName;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "subdivision_id", nullable = true)
+    private ModelSubdivision subdivision;
 }

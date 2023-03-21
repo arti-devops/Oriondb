@@ -27,9 +27,12 @@ public class ModelSubdivision {
     private String shortName;
 
     @ManyToOne
-    @JoinColumn(name = "subdivision_id", nullable = true, insertable = false, updatable = false)
+    @JoinColumn(name = "direction_id", nullable = true, insertable = false, updatable = false)
     private ModelSubdivision direction;
 
     @OneToMany(mappedBy = "direction", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<ModelSubdivision> subdivisions = new ArrayList<>();
+
+    @OneToMany(mappedBy = "subdivision", cascade = CascadeType.ALL)
+    private List<ModelService> services = new ArrayList<>();
 }
