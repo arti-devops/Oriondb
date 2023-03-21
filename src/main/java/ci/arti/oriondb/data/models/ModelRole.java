@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Getter @Setter @NoArgsConstructor
 public class ModelRole {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "role_id")
     private Long roleId;
 
     @Column(nullable = false)

@@ -13,7 +13,8 @@ import java.io.Serializable;
 public class ModelEmployee implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long employee_id;
+    @Column(name = "employee_id")
+    private Long employeeId;
 
     @Column(nullable = false)
     private String matricule;
