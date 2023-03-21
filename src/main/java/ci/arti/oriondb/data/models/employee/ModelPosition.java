@@ -1,9 +1,7 @@
 package ci.arti.oriondb.data.models.employee;
 
-import ci.arti.oriondb.data.models.employee.ModelEmployee;
-import ci.arti.oriondb.data.models.employee.ModelRole;
-import ci.arti.oriondb.data.models.employee.ModelService;
-import ci.arti.oriondb.data.models.employee.ModelSubdivision;
+import ci.arti.oriondb.data.models.checkin.ModelLogbook;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +9,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "ms_position")
@@ -47,5 +47,7 @@ public class ModelPosition {
     @JsonManagedReference
     private ModelSubdivision subdivision;
 
-
+    @OneToMany(mappedBy = "position")
+    @JsonBackReference
+    private List<ModelLogbook> logs = new ArrayList<>();
 }
