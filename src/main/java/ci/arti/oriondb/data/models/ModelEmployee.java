@@ -1,4 +1,4 @@
-package ci.arti.oriondb.data.model;
+package ci.arti.oriondb.data.models;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
