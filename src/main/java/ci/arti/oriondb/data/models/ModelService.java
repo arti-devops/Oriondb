@@ -28,9 +28,9 @@ public class ModelService {
     @Column
     private String shortName;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "subdivision_id")
-    @JsonBackReference
+    @JsonManagedReference
     private ModelSubdivision subdivision;
 
     @OneToMany(mappedBy = "service")

@@ -28,17 +28,18 @@ public class ModelSubdivision {
     @Column
     private String shortName;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "direction_id")
-    @JsonBackReference
+    @JsonManagedReference
     private ModelSubdivision direction;
 
     @OneToMany(mappedBy = "direction")
-    @JsonManagedReference
+    @JsonBackReference
     private List<ModelSubdivision> subdivisions = new ArrayList<>();
 
-    @OneToMany(mappedBy = "subdivision", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    // Foreign relationships
+    @OneToMany(mappedBy = "subdivision")
+    @JsonBackReference
     private List<ModelService> services = new ArrayList<>();
 
     @OneToMany(mappedBy = "subdivision")
