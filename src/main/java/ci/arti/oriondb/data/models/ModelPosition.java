@@ -1,7 +1,5 @@
 package ci.arti.oriondb.data.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,4 +22,9 @@ public class ModelPosition {
 
     @Column(nullable = true)
     private String location;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "employee_id")
+    @JsonManagedReference
+    private ModelEmployee employee;
 }

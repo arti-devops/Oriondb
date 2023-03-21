@@ -1,7 +1,6 @@
 package ci.arti.oriondb.data.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -29,12 +28,13 @@ public class ModelEmployee implements Serializable {
     @Column(nullable = false)
     private String lastName;
 
-    @Column(nullable = true)
     private String gender;
 
-    @Column(nullable = true)
     private String email;
 
-    @Column(nullable = true)
     private String contact;
+
+    @OneToMany(mappedBy = "employee")
+    @JsonBackReference
+    private List<ModelPosition> positions = new ArrayList<>();
 }
