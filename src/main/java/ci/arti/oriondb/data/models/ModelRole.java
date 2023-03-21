@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "role")
@@ -19,4 +21,7 @@ public class ModelRole {
 
     @Column
     private String shortName;
+
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
+    private List<ModelPosition> roles = new ArrayList<>();
 }

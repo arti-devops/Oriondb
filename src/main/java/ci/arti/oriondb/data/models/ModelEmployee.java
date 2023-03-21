@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "employee")
@@ -33,4 +35,7 @@ public class ModelEmployee implements Serializable {
 
     @Column(nullable = true)
     private String contact;
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private List<ModelPosition> roles = new ArrayList<>();
 }

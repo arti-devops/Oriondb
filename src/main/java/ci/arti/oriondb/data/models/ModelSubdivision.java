@@ -35,4 +35,7 @@ public class ModelSubdivision {
 
     @OneToMany(mappedBy = "subdivision", cascade = CascadeType.ALL)
     private List<ModelService> services = new ArrayList<>();
+
+    @OneToMany(mappedBy = "subdivision", cascade = CascadeType.ALL)
+    private List<ModelPosition> subdivision = new ArrayList<>();
 }

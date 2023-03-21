@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "service")
@@ -27,4 +29,7 @@ public class ModelService {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subdivision_id", nullable = true)
     private ModelSubdivision subdivision;
+
+    @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
+    private List<ModelPosition> services = new ArrayList<>();
 }
