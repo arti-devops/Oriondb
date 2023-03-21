@@ -38,5 +38,10 @@ public class ModelPosition {
     @JsonManagedReference
     private ModelService service;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "subdivision_id")
+    @JsonManagedReference
+    private ModelSubdivision subdivision;
+
 
 }
