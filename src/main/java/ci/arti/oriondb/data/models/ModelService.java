@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "service")
+@Table(name = "tb_service")
 @Getter @Setter @NoArgsConstructor
 public class ModelService {
     @Id

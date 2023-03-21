@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "position")
+@Table(name = "ms_position")
 @Getter @Setter @NoArgsConstructor
 public class ModelPosition {
 
@@ -18,6 +18,9 @@ public class ModelPosition {
 
     @Column(name = "position_date")
     private Date positionDate;
+
+    @Column(nullable = true)
+    private String location;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id")

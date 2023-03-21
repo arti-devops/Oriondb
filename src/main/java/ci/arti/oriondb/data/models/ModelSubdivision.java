@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "subdivision")
+@Table(name = "tb_subdivision")
 @Getter @Setter @NoArgsConstructor
 public class ModelSubdivision {
     @Id
@@ -26,11 +26,11 @@ public class ModelSubdivision {
     @Column
     private String shortName;
 
-    @ManyToOne
-    @JoinColumn(name = "direction_id", nullable = true, insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "direction_id")
     private ModelSubdivision direction;
 
-    @OneToMany(mappedBy = "direction", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "direction")
     private List<ModelSubdivision> subdivisions = new ArrayList<>();
 
     @OneToMany(mappedBy = "subdivision", cascade = CascadeType.ALL)
