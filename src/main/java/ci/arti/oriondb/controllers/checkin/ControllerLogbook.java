@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.Date;
 import java.util.List;
 
 @RestController
@@ -24,5 +25,10 @@ public class ControllerLogbook {
     @GetMapping("/{id}")
     private ModelLogbook getLogById(@PathVariable Long id){
         return repositoryLogbook.findById(id).orElseThrow(() -> new ResourceNotFoundException("Log","ID",id));
+    }
+
+    @GetMapping("/{s}/{e}")
+    private List<ModelLogbook> getLogBetween(@PathVariable Date s, @PathVariable Date e){
+        return repositoryLogbook.findModelLogbookByLogDateBetween(s,e);
     }
 }

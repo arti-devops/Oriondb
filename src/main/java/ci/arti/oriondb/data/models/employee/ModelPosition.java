@@ -28,6 +28,9 @@ public class ModelPosition {
     @Column(nullable = true)
     private String location;
 
+    @Column(nullable = false)
+    private String status;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "employee_id")
     @JsonManagedReference
