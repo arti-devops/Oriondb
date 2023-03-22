@@ -3,6 +3,7 @@ package ci.arti.oriondb.data.models.employee;
 import ci.arti.oriondb.data.models.checkin.ModelAbsence;
 import ci.arti.oriondb.data.models.checkin.ModelLogbook;
 import ci.arti.oriondb.data.models.evaluation.ModelEvaluation;
+import ci.arti.oriondb.data.models.project.ModelTaskRole;
 import ci.arti.oriondb.data.models.training.ModelCourse;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -68,4 +69,8 @@ public class ModelPosition {
     @OneToMany(mappedBy = "position")
     @JsonBackReference
     private List<ModelEvaluation> evaluations = new ArrayList<>();
+
+    @OneToMany(mappedBy = "position")
+    @JsonBackReference
+    private List<ModelTaskRole> taskRoles = new ArrayList<>();
 }
