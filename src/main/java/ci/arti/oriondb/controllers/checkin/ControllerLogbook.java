@@ -32,13 +32,13 @@ public class ControllerLogbook {
         return repositoryLogbook.findById(id).orElseThrow(() -> new ResourceNotFoundException("Log","ID",id));
     }
 
-    @GetMapping("/{s}/{e}")
+    @GetMapping("/range/{s}/{e}")
     private List<ModelLogbook> getLogBetween(@PathVariable Date s,
                                              @PathVariable Date e){
         return repositoryLogbook.findModelLogbookByLogDateBetween(s,e);
     }
 
-    @GetMapping("/{p}/{s}/{e}")
+    @GetMapping("/range/{p}/{s}/{e}")
     private List<ModelLogbook> getPositionLogBetween(@PathVariable Long p,
                                                      @PathVariable Date s,
                                                      @PathVariable Date e){

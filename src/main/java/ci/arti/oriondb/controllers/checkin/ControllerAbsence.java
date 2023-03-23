@@ -32,13 +32,13 @@ public class ControllerAbsence {
         return repositoryAbsence.findById(id).orElseThrow(() -> new ResourceNotFoundException("Absence","ID",id));
     }
 
-    @GetMapping("/{s}/{e}")
+    @GetMapping("/range/{s}/{e}")
     private List<ModelAbsence> getAllByAbsDateBetween(@PathVariable Date s,
                                                       @PathVariable Date e){
         return repositoryAbsence.findAllByAbsDateBetween(s,e);
     }
 
-    @GetMapping("/{p}/{s}/{e}")
+    @GetMapping("/range/{p}/{s}/{e}")
     private List<ModelAbsence> getAllByPositionAndAbsDateBetween(@PathVariable Long p,
                                                                  @PathVariable Date e,
                                                                  @PathVariable Date s){
