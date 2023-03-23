@@ -3,6 +3,7 @@ package ci.arti.oriondb.controllers.employee;
 import ci.arti.oriondb.data.models.employee.ModelPosition;
 import ci.arti.oriondb.data.repository.employee.RepositoryPosition;
 import ci.arti.oriondb.exception.ResourceNotFoundException;
+import ci.arti.oriondb.services.ServicePosition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,13 +17,20 @@ import java.util.List;
 public class ControllerPosition {
 
     @Autowired
-    RepositoryPosition repositoryPosition;
+    ServicePosition servicePosition;
 
     @GetMapping("/all")
-    public List<ModelPosition> getAllPositions(){return repositoryPosition.findAll();}
+    public List<ModelPosition> getAllPositions(){
+        return servicePosition.getAllPositions();
+    }
+
+    @GetMapping("/all/active")
+    public List<ModelPosition> getAllActivePositions(){
+        return servicePosition.getAllActivePositions();
+    }
 
     @GetMapping("/{id}")
     public ModelPosition getPositionById(@PathVariable("id") Long id){
-        return repositoryPosition.findById(id).orElseThrow(() -> new ResourceNotFoundException("Position","ID",id));
+        return servicePosition.getASinglePosition(id);
     }
 }

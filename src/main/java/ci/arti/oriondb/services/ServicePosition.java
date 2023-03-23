@@ -8,5 +8,6 @@ import java.util.List;
 @Component
 public interface ServicePosition {
     List<ModelPosition> getAllPositions();
+    List<ModelPosition> getAllActivePositions();
     ModelPosition getASinglePosition(Long positionId);
 }
