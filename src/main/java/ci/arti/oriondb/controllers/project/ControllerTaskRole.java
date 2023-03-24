@@ -1,8 +1,9 @@
 package ci.arti.oriondb.controllers.project;
 
+import ci.arti.oriondb.data.models.employee.ModelPosition;
 import ci.arti.oriondb.data.models.project.ModelTaskRole;
-import ci.arti.oriondb.data.repository.project.RepositoryTaskRole;
-import ci.arti.oriondb.exception.ResourceNotFoundException;
+import ci.arti.oriondb.services.ServicePosition;
+import ci.arti.oriondb.services.project.ServiceTaskRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,15 +17,23 @@ import java.util.List;
 public class ControllerTaskRole {
 
     @Autowired
-    private RepositoryTaskRole repositoryTaskRole;
+    private ServiceTaskRole serviceTaskRole;
+    @Autowired
+    private ServicePosition servicePosition;
 
     @GetMapping("/all")
     private List<ModelTaskRole> getAllTaskRoles(){
-        return repositoryTaskRole.findAll();
+        return serviceTaskRole.getAllTaskRoles();
     }
 
-    @GetMapping("/{id}")
-    private ModelTaskRole getTaskRoleById(@PathVariable long id){
-        return repositoryTaskRole.findById(id).orElseThrow(() -> new ResourceNotFoundException("TaskRole","ID",id));
+    @GetMapping("/{taskRoleId}")
+    private ModelTaskRole getTaskRoleById(@PathVariable long taskRoleId){
+        return serviceTaskRole.getASingleTaskRole(taskRoleId);
+    }
+
+    @GetMapping("/position/{positionId}")
+    private List<ModelTaskRole> getAllTaskRolesByPosition(@PathVariable Long positionId){
+        ModelPosition position = servicePosition.getASinglePosition(positionId);
+        return serviceTaskRole.getAllTaskRolesByPosition(position);
     }
 }
