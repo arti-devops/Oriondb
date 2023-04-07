@@ -43,6 +43,10 @@ public class ControllerAbsence {
                                                                  @PathVariable Date e,
                                                                  @PathVariable Date s){
         ModelPosition position = servicePosition.getASinglePosition(p);
-        return repositoryAbsence.findAllByPositionAndAbsDateBetween(position, s, e);
+        List<ModelAbsence> absences = repositoryAbsence.findAllByPositionAndAbsDateBetween(position, s, e);
+        for (ModelAbsence absence: absences){
+            absence.setPosition(null);
+        }
+        return absences;
     }
 }
