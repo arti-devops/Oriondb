@@ -6,6 +6,8 @@ import ci.arti.oriondb.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ServiceTaskImpl implements ServiceTask{
 
@@ -14,5 +16,10 @@ public class ServiceTaskImpl implements ServiceTask{
     @Override
     public ModelTask getASingleTask(Long taskId) {
         return repositoryTask.findById(taskId).orElseThrow(() -> new ResourceNotFoundException("Task","ID",taskId));
+    }
+
+    @Override
+    public List<ModelTask> getAllProjectTasks(ModelTask project) {
+        return repositoryTask.findAllModelTaskByProject(project);
     }
 }

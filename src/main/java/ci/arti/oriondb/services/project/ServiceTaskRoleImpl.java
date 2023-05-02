@@ -40,9 +40,6 @@ public class ServiceTaskRoleImpl implements ServiceTaskRole{
     @Override
     public List<ModelTaskRole> getAllTaskRoleByTask(ModelTask task) {
         List<ModelTaskRole> taskRoles = repositoryTaskRole.findAllModelTaskRoleByTask(task);
-        for(ModelTaskRole taskRole : taskRoles){
-            taskRole.setTask(null);
-        }
         return taskRoles;
     }
 }
