@@ -1,6 +1,7 @@
 package ci.arti.oriondb.services.project;
 
 import ci.arti.oriondb.data.models.employee.ModelPosition;
+import ci.arti.oriondb.data.models.project.ModelTask;
 import ci.arti.oriondb.data.models.project.ModelTaskRole;
 import ci.arti.oriondb.data.repository.project.RepositoryTaskRole;
 import ci.arti.oriondb.exception.ResourceNotFoundException;
@@ -33,6 +34,12 @@ public class ServiceTaskRoleImpl implements ServiceTaskRole{
         for (ModelTaskRole taskRole: taskRoles) {
             taskRole.setPosition(null);
         };
+        return taskRoles;
+    }
+
+    @Override
+    public List<ModelTaskRole> getAllTaskRoleByTask(ModelTask task) {
+        List<ModelTaskRole> taskRoles = repositoryTaskRole.findAllModelTaskRoleByTask(task);
         return taskRoles;
     }
 }
